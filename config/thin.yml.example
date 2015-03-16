@@ -1,0 +1,12 @@
+---
+chdir: /opt/app/huangmin/current
+environment: development
+address: 0.0.0.0
+port: 2333
+timeout: 30
+max_conns: 1024
+max_persistent_conns: 100
+require: []
+wait: 30
+servers: 1
+daemonize: true

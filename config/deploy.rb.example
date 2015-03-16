@@ -8,14 +8,16 @@ set :application, "happystock web"
 set :repository, "."
 set :scm, :none
 set :deploy_via, :copy
-server = "106.185.55.68"
+#server = "106.185.55.68"
+server = "106.185.52.66"
+
 
 role :web, server
 role :app, server
 role :db,  server, :primary => true
 role :db,  server
 
-set :deploy_to, "/opt/app/happystock_web"
+set :deploy_to, "/opt/app/huangmin"
 default_run_options[:pty] = true
 
 # change to your username
@@ -36,7 +38,7 @@ namespace :deploy do
   end
   task :db_migrate do
     run "cd #{release_path} && bundle install"
-    run "cd #{release_path} && bundle exec rake db:migrate RAILS_ENV=production"
+    run "cd #{release_path} && bundle exec rake db:create db:migrate RAILS_ENV=production"
   end
 
   namespace :assets do
@@ -54,7 +56,7 @@ end
 desc "Copy database.yml to release_path"
 task :cp_database_yml do
   puts "=== executing my customized command: "
-  run "cp -r #{shared_path}/config/* #{release_path}/config/"
+  run "cp -r #{release_path}/config/ #{shared_path}/config/* "
   run "ln -s #{shared_path}/files #{release_path}/public/files "
   # 因为在开发机器上会存在这个文件夹，所以需要先把它删掉，再 ln
   run "rm #{release_path}/public/uploads -rf"
