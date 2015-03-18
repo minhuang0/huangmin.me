@@ -17,3 +17,8 @@ gem 'net-ssh','2.9.1'
 gem 'thin','1.6.2'
 gem 'execjs','2.4.0'
 gem 'therubyracer', :platforms => :ruby
+
+#'网页编辑器Gem'
+gem 'carrierwave','0.9.0'
+gem 'mini_magick','3.6.0'
+gem 'ckeditor','4.1.0'

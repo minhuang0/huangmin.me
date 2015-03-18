@@ -1,10 +1,10 @@
 # -*- encoding : utf-8 -*-
 Rails.application.routes.draw do
-   #root 'welcome#index'
+  root 'articles#index'
+  resources :articles
 
-   resources :articles
 
-   root 'articles#index'
+  mount Ckeditor::Engine => '/ckeditor'
   # Example resource route with options:
   #   resources :products do
   #     member do
