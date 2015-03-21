@@ -1,7 +1,9 @@
 # -*- encoding : utf-8 -*-
 Rails.application.routes.draw do
-  root 'articles#index'
+  root 'blogs#index'
+
   resources :articles
+  resources :blogs ,only: [:index,:show]
 
 
   mount Ckeditor::Engine => '/ckeditor'

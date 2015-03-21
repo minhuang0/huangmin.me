@@ -1,0 +1,9 @@
+<table class="table table-striped">
+  <tr><td><h1> <%= @blog.title %></h1></td></tr>
+  <tr><td><p><%=raw @blog.text %></p></td></tr>
+</table>
+<ul class="pager">
+  <li class="previous"> <a href="#">&larr; Older</a> </li>
+  <li><%= link_to 'Back', blogs_path %></li>
+  <li class="next"><a href="#" left='0'>Newer &rarr;</a></li>
+</ul>
