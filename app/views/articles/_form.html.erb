@@ -1,10 +1,9 @@
 <%= form_for @article do |f| %>
 <p>
-<%= f.label :title %><br>
-<%= f.text_field :title %>
+<%= f.text_field :title , :placeholder=>"标题"%>
 </p>
 <p>
-  <%= f.cktext_area :text %>
+<%= f.cktext_area :text%>
 </p>
 <p>
 <%= f.submit %>
