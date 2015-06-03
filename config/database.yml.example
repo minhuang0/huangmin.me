@@ -2,19 +2,19 @@ development:
   adapter: mysql2
   host: localhost
   username: root
-  password: root
-  database: blog
+  password:
+  database: huangmin
 
 test:
   adapter: mysql2
   host: localhost
   username: root
-  password: root
-  database: blog_test
+  password:
+  database: huangmin_test
 
 production:
   adapter: mysql2
   host: localhost
   username: root
-  password: root
-  database: blog
+  password:
+  database: huangmin
