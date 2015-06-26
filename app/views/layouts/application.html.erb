@@ -2,45 +2,37 @@
 <html lang='en'>
 <head>
   <title>Blog</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all'%>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
-  <!--启用响应式特性 -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
 </head>
 <body>
   <div class="navbar">
     <div class="navbar-inner">
       <div class="container">
-        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </a>
         <a class="brand" href="/">huangmin.me</a>
         <div class="nav-collapse collapse">
           <% if user_signed_in? %>
             <ul class="nav">
-              <li class="active"><a href="/blogs">博客</a></li>
+              <li><a href="/blogs">博客</a></li>
               <li><a href="#">简介</a></li>
               <li><a href="#">随笔</a></li>
             </ul>
             <ul class="nav navbar-nav" style='float:right'>
+              <li>
+              <!--导航条 -->
+              <form class="navbar-search pull-right">
+                <input type="text" class="search-query" placeholder="Search">
+              </form>
+              </li>
               <li><%= link_to "欢迎你：#{current_user.try :email}" %></li>
               <li> <%= link_to '退出', destroy_user_session_path, :method => :delete  %> </li>
-            </ul>
-          <% else %>
-            <ul class="nav navbar-nav" style='float:right'>
+            <% else %>
               <li>
               <%= link_to '登陆' , '/users/sign_in', :method => :get%>
               </li>
             </ul>
           <% end %>
-          <!--导航条 -->
-          <form class="navbar-search pull-right">
-            <input type="text" class="search-query" placeholder="Search">
-          </form>
         </div>
       </div>
     </div>
