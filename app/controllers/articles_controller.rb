@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 class ArticlesController < ApplicationController
-  http_basic_authenticate_with name: "admin", password: "Hmpwis$", except: [:index, :show]
+  before_action :authenticate_user!
   def new
     @article = Article.new
   end
