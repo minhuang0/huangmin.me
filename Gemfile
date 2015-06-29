@@ -1,4 +1,6 @@
-source 'http://ruby.taobao.org/'
+#source 'http://ruby.taobao.org/'
+source 'https://rubygems.org'
+
 
 
 #必要Gem
@@ -24,4 +26,4 @@ gem 'mini_magick','3.6.0'
 gem 'ckeditor','4.1.0'
 
 #验证
-gem 'devise','3.5.0'
+gem 'devise','3.4.0'

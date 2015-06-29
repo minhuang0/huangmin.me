@@ -12,7 +12,6 @@
       <div class="container">
         <a class="brand" href="/">huangmin.me</a>
         <div class="nav-collapse collapse">
-          <% if user_signed_in? %>
             <ul class="nav">
               <li><a href="/blogs">博客</a></li>
               <li><a href="#">简介</a></li>
@@ -25,10 +24,11 @@
                 <input type="text" class="search-query" placeholder="Search">
               </form>
               </li>
-              <li><%= link_to "欢迎你：#{current_user.try :email}" %></li>
+              <% if user_signed_in? %>
+                <li><%= link_to "欢迎你：#{current_user.try :email}" %></li>
               <li> <%= link_to '退出', destroy_user_session_path, :method => :delete  %> </li>
             <% else %>
-              <li>
+                <li>
               <%= link_to '登陆' , '/users/sign_in', :method => :get%>
               </li>
             </ul>
