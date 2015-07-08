@@ -9,11 +9,11 @@
   </blockquote>
 </div>
 <table class="table table-striped table-hover">
-  <% @blogs.each do |blog| %>
+  <% @notes.each do |note| %>
     <tr>
     <td>
       <i class="icon-leaf"></i>
-      <%= link_to "#{blog.created_at} #{blog.title}",blog_path(blog) %>
+      <%= link_to "#{note.created_at} #{note.title}",note_path(note) %>
     </td>
   </tr>
 <% end %>
