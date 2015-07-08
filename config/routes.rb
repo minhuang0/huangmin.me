@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :articles
-  resources :blogs ,only: [:index,:show]
+  resources :classifications
+  resources :notes ,only: [:index,:show]
 
   mount Ckeditor::Engine => '/ckeditor'
 end

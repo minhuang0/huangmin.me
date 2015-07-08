@@ -1,0 +1,8 @@
+<%= link_to 'Back', classifications_path %>
+| <%= link_to 'Edit', edit_classification_path(@classification) %>
+<table class="table table-striped">
+  <tr><td><h1> <%= @classification.name %></h1></td></tr>
+  <tr><td><p><%=raw @classification.display %></p></td></tr>
+</table>
+<%= link_to 'Back', classifications_path %>
+| <%= link_to 'Edit', edit_classification_path(@classification) %>
