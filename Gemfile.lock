@@ -170,3 +170,6 @@ DEPENDENCIES
   therubyracer (= 0.12.2)
   thin (= 1.6.2)
   uglifier (= 2.7.1)
+
+BUNDLED WITH
+   1.10.1

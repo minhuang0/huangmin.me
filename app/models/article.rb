@@ -1,3 +1,3 @@
 class Article < ActiveRecord::Base
-  has_one :classification
+  belongs_to :classification
 end
