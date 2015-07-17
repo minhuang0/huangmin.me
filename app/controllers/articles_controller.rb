@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!
   def new
     @article = Article.new
+    @classifications = Classification.all
   end
 
   def index
@@ -22,6 +23,7 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = Article.find(params[:id])
+    @classifications = Classification.all
   end
 
   def update

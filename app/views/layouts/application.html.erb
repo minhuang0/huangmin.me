@@ -16,22 +16,21 @@
           </div>
 
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li class="active">
+              <a href="/notes">笔记</a>
+              </li>
+              <li>
+              <a href="#">其他</a>
+            </ul>
             <% if user_signed_in? %>
-              <ul class="nav navbar-nav">
-                <li class="active">
-                <a href="/">笔记</a>
+              <ul class="nav navbar-nav navbar-right">
+                <li>
+                <a href="/articles">文章管理</a>
                 </li>
                 <li>
-                <a href="#">Link</a>
+                <a href="/classifications">分类管理</a>
                 </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                </li>
-                <form class="navbar-form navbar-left" role="search">
-                  <div class="form-group">
-                    <input type="text" class="form-control" />
-                  </div> <button type="submit" class="btn btn-default">Submit</button>
-                </form>
                 </li>
                 <li><%= link_to "欢迎你：#{current_user.try :email}" %></li>
                 <li> <%= link_to '退出', destroy_user_session_path, :method => :delete  %> </li>
@@ -41,16 +40,16 @@
                 </li>
               </ul>
             <% end %>
-            </ul>
-          </div>
-
-          </nav>
+          </ul>
         </div>
+
+        </nav>
       </div>
     </div>
+  </div>
 
-    <div class="container">
-      <%= yield %>
-    </div>
-  </body>
+  <div class="container">
+    <%= yield %>
+  </div>
+</body>
 </html>

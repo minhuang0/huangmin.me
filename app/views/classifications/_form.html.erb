@@ -1,11 +1,19 @@
-<%= form_for @classification do |f| %>
-<p>
-<%= f.text_field :name, :placeholder=>"分类名字"%>
-</p>
-<p>
-<%= f.text_field :display , :placeholder=>"分类名字"%>
-</p>
-<p>
-<%= f.submit %>
-</p>
-<% end %>
+<table class='table table-hover table-striped'>
+  <%= form_for @classification do |f| %>
+    <tr>
+      <td>
+        <%= f.text_field :name, :placeholder=>"分类名字"%>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.select :display ,options_for_select([[true],[false]], @articles.display) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.submit %>
+      </td>
+    </tr>
+  <% end %>
+</table>

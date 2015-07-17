@@ -1,11 +1,18 @@
 <%= form_for @article do |f| %>
-<p>
-<%= f.text_field :title , :placeholder=>"标题"%>
-</p>
-<p>
-<%= f.cktext_area :text%>
-</p>
-<p>
-<%= f.submit %>
-</p>
+  <table class='table table-hover table-striped'>
+    <tr>
+      <td><%= f.text_field :title ,class: 'form-control', :placeholder=>'标题' %></td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.select :classification_id, options_for_select( @classifications.map{ |classification| [ classification.name , classification.id ] }) %>
+      </td>
+    </tr>
+    <tr>
+      <td><%= f.cktext_area :text%></td>
+    </tr>
+    <tr>
+      <td> <%= f.submit '确定', class: 'btn btn-primary'%><%= link_to '返回', articles_path , class: 'btn btn-default'%> </td>
+    </tr>
+  </table>
 <% end %>
