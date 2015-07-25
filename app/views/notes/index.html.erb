@@ -8,7 +8,7 @@
     <tr>
     <td>
       <i class="icon-leaf"></i>
-      <%= link_to "#{note.created_at} #{note.title}",note_path(note) %>
+      <%= link_to "#{note.created_at.strftime("%Y-%m-%e")} #{note.title}",note_path(note) %>
     </td>
   </tr>
 <% end %>
