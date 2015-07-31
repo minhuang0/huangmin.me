@@ -1,0 +1,28 @@
+log4r_config:
+  loggers:
+    - name      : production
+      level     : WARN
+      trace     : 'false'
+      outputters :
+      - datefile
+    - name      : development
+      level     : DEBUG
+      trace     : 'true'
+      outputters :
+      - datefile
+    - name      : test
+      level     : DEBUG
+      trace     : 'true'
+      outputters :
+      - datefile
+
+  outputters:
+  - type: DateFileOutputter
+    name: datefile
+    dirname: "log"
+    # 日志的名字, 不写的话反而很好, 文件名就是 rspec / rails 这样的命令.
+    #filename: "happystock_web.log"
+    formatter:
+      date_pattern: '%H:%M:%S'
+      pattern     : '%d %l: %m '
+      type        : PatternFormatter

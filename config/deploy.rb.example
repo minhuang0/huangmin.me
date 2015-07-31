@@ -1,27 +1,28 @@
-# -*- encoding : utf-8 -*-
 require 'capistrano-rbenv'
 load 'deploy/assets'
-SSH_USER = 'root'
-ssh_options[:port] = 22222
+SSH_USER = 'ubuntu'
+ssh_options[:port] = 22
 set :rake, "bundle exec rake"
-set :application, "happystock web"
+set :application, "huangmin"
 set :repository, "."
 set :scm, :none
 set :deploy_via, :copy
-#server = "106.185.55.68"
-server = "106.185.52.66"
 
+
+
+server = "119.254.210.55"
 
 role :web, server
 role :app, server
 role :db,  server, :primary => true
 role :db,  server
 
-set :deploy_to, "/opt/app/huangmin"
+set :deploy_to, "/opt/app/huangmin/huangmin_blog"
 default_run_options[:pty] = true
 
 # change to your username
 set :user, SSH_USER
+
 
 namespace :deploy do
   task :start do
@@ -47,7 +48,7 @@ namespace :deploy do
   #    command = "cd #{release_path} && bundle exec rake RAILS_ENV=production RAILS_GROUPS=assets assets:precompile "
   #    puts "== please run == \n #{command} \n == manually after deploy is done"
       #run "bundle install"
-      #run "cd #{release_path} && bundle exec rake RAILS_ENV=production RAILS_GROUPS=assets assets:precompile "
+      run "cd #{release_path} && bundle install  && bundle exec rake RAILS_ENV=production RAILS_GROUPS=assets assets:precompile "
     end
   end
 end
@@ -56,7 +57,8 @@ end
 desc "Copy database.yml to release_path"
 task :cp_database_yml do
   puts "=== executing my customized command: "
-  run "cp -r #{release_path}/config/ #{shared_path}/config/* "
+  run "cp -r #{shared_path}/config/* #{release_path}/config/ "
+  run "rm #{release_path}/public/files -rf"
   run "ln -s #{shared_path}/files #{release_path}/public/files "
   # 因为在开发机器上会存在这个文件夹，所以需要先把它删掉，再 ln
   run "rm #{release_path}/public/uploads -rf"
