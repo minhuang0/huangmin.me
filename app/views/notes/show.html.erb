@@ -1,9 +1,0 @@
-<table class="table table-striped">
-  <tr><td><h1> <%= @note.title %></h1></td></tr>
-  <tr><td><p><%=raw @note.text %></p></td></tr>
-</table>
-<ul class="pager">
-  <li class="previous"> <a href="#">&larr; Older</a> </li>
-  <li><%= link_to 'Back', notes_path %></li>
-  <li class="next"><a href="#" left='0'>Newer &rarr;</a></li>
-</ul>

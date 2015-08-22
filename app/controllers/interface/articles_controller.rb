@@ -5,7 +5,7 @@ class Interface::ArticlesController < ActionController::Base
       {
         :id => article.id,
         :title => article.title,
-        :classification => article.classification.name,
+        :classification => article.classification.name || '',
         :created_at => article.created_at.strftime("%m-%d %Y")
       }
     end

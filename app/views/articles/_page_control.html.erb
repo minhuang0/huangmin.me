@@ -1,0 +1,8 @@
+<div class="pagination" style="width: 100%;">
+  <ul>
+    <li class="previous"><span class="fui-arrow-left"></span><%= link_to(@article.previous_post.title, @article.previous_post) if @article.previous_post %> </li>
+  </ul>
+  <ul style="float:right;">
+    <li class="next"><%= link_to(@article.next_post.title, @article.next_post,) if @article.next_post %><span class="fui-arrow-right"></span></li>
+  </ul>
+</div>

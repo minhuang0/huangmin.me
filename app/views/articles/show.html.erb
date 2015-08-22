@@ -1,8 +1,3 @@
-<%= link_to 'Back', articles_path %>
-| <%= link_to 'Edit', edit_article_path(@article) %>
-<table class="table table-striped">
-  <tr><td><h1> <%= @article.title %></h1></td></tr>
-  <tr><td><p><%=raw @article.text %></p></td></tr>
-</table>
-<%= link_to 'Back', articles_path %>
-| <%= link_to 'Edit', edit_article_path(@article) %>
+<h2><%= @article.title %></h2>
+<blockquote><%=raw @article.text %></blockquote>
+<%= render 'page_control' %>

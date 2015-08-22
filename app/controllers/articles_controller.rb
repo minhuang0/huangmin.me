@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :except => [:index, :show]
   def new
     @article = Article.new
     @classifications = Classification.all
@@ -41,8 +41,8 @@ class ArticlesController < ApplicationController
     redirect_to articles_path
   end
 
-private
-def article_params
-  params.require(:article).permit(:title, :text, :classification_id)
-end
+  private
+  def article_params
+    params.require(:article).permit(:title, :text, :classification_id)
+  end
 end
