@@ -1,20 +1,18 @@
-development:
+default: &default
   adapter: mysql2
-  host: localhost
+  pool: 5
+  timeout: 5000
   username: root
-  password:
-  database: huangmin
+  passwd:
+
+development:
+  <<: *default
+  database: yue_house_mall
 
 test:
-  adapter: mysql2
-  host: localhost
-  username: root
-  password:
-  database: huangmin_test
+  <<: *default
+  database: yue_house_mall_test
 
 production:
-  adapter: mysql2
-  host: localhost
-  username: root
-  password:
-  database: huangmin
+  <<: *default
+  database: yue_house_mall_manage

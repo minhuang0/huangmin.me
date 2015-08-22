@@ -1,5 +1,5 @@
 GEM
-  remote: https://rubygems.org/
+  remote: http://ruby.taobao.org/
   specs:
     actionmailer (4.1.6)
       actionpack (= 4.1.6)
@@ -172,4 +172,4 @@ DEPENDENCIES
   uglifier (= 2.7.1)
 
 BUNDLED WITH
-   1.10.1
+   1.10.6
