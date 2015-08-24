@@ -1,13 +1,20 @@
 # -*- encoding : utf-8 -*-
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, :except => [:index, :show]
+  impressionist :actions=>[:show,:index]
   def new
     @article = Article.new
     @classifications = Classification.all
   end
 
   def index
-    @articles = Article.all
+    @articles = Article.all.order('created_at DESC')
+    @all_articles_impressionist_counts_ip = 0
+    @all_articles_impressionist_counts_num = 0
+    @articles.each do |article|
+        @all_articles_impressionist_counts_ip += article.impressionist_count(:filter=>:ip_address).to_i
+        @all_articles_impressionist_counts_num += article.impressionist_count().to_i
+    end
   end
 
   def create
@@ -19,6 +26,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @article.impressionist_count(:filter=>:ip_address)
   end
 
   def edit

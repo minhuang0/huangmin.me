@@ -1,3 +1,6 @@
+<p class="palette-paragraph" style="float: right;margin: 10px;">
+<strong><%= "共#{@all_articles_impressionist_counts_ip}个ip访问过#{@all_articles_impressionist_counts_num}次" %></strong>
+</p>
 <% @articles.each do |article| %>
   <h5><span class="fui-document" style="margin-right: 21px;"></span><%= link_to "#{article.created_at.strftime("%Y-%m-%e")} #{article.title}",article_path(article) %></h5>
 <% end %>

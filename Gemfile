@@ -27,3 +27,5 @@ gem 'ckeditor','4.1.0'
 
 #验证
 gem 'devise','3.4.0'
+#统计
+gem 'impressionist','1.5.1'
