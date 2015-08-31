@@ -1,26 +1,25 @@
-<h2>登 录</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<div class="login">
+  <div class="login-screen">
+    <div class="login-icon">
+      <img src=<%= asset_path 'icon.png' %> alt="Welcome to Huangmin.me">
+      <h4>欢迎来到<small>huangmin.me</small></h4>
     </div>
-  <% end -%>
 
-  <div class="actions">
-    <%= f.submit "登录" %>
+    <div class="login-form">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-group">
+        <%= f.email_field :email, autofocus: true ,:class => "form-control login-field", :placeholder => "输入邮箱"%>
+        <label class="login-field-icon fui-user" for="login-name"></label>
+      </div>
+
+      <div class="form-group">
+        <%= f.password_field :password, autocomplete: "off", :class => "form-control login-field", :placeholder => "请输入密码"  %>
+        <label class="login-field-icon fui-lock" for="login-pass"></label>
+      </div>
+
+      <%= f.submit "登录", :class => "btn btn-primary btn-lg btn-block"  %>
+      <a class="login-link" href="#">Lost your password?</a>
+      <% end %>
+    </div>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

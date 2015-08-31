@@ -3,5 +3,6 @@
  *= require headroom
  *= require flat-ui.min
  *= require animate.min
+ *= require flat-ui.min
  *= require_self
  */
