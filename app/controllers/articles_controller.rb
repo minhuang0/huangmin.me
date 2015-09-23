@@ -1,7 +1,8 @@
 # -*- encoding : utf-8 -*-
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!, :except => [:index, :show]
-  impressionist :actions=>[:show,:index]
+  before_action :authenticate_user!, :except => [:index, :show,:welcome]
+  impressionist :actions=>[:show,:index,:welcome]
+
   def new
     @article = Article.new
     @classifications = Classification.all
@@ -20,7 +21,6 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     @article.save
-
     redirect_to @article
   end
 
@@ -39,7 +39,7 @@ class ArticlesController < ApplicationController
     if @article.update(article_params)
       redirect_to @article
     else
-      render 'edit'
+      redirect_to :back
     end
   end
 
@@ -47,6 +47,10 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.destroy
     redirect_to articles_path
+  end
+
+  def welcome
+    render 'welcome'
   end
 
   private

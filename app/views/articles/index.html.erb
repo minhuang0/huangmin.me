@@ -5,11 +5,8 @@
 <div style="margin-top:50px;">
   <% @articles.each do |article| %>
     <h5>
-      <span class="fui-document" style="margin-right: 21px;"></span><%= link_to "#{article.title}",article_path(article) %>
+      <span class="fui-document" style="margin-right: 21px;"></span><%= link_to truncate(article.title),article_path(article) %>
       <span class="palette-paragraph" style="float: right;margin-left: 10px;"><strong><%= article.created_at.strftime("%Y-%m-%e") %></strong></span>
     </h5>
   <% end %>
-</div>
-<div class="progress">
-  <div class="progress-bar" style="width: 45%;"></div>
 </div>
