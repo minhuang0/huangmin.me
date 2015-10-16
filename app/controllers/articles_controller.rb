@@ -9,7 +9,8 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.all.order('created_at DESC')
+    @classification = Classification.find_by_name(params[:classification_name])
+    @articles = @classification.articles.all.order('created_at DESC')
     @all_articles_impressionist_counts_ip = 0
     @all_articles_impressionist_counts_num = 0
     @articles.each do |article|
@@ -51,6 +52,10 @@ class ArticlesController < ApplicationController
 
   def welcome
     render 'welcome'
+  end
+
+  def markdown
+    render 'markdown'
   end
 
   private

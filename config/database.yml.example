@@ -7,12 +7,12 @@ default: &default
 
 development:
   <<: *default
-  database: yue_house_mall
+  database: huangmin
 
 test:
   <<: *default
-  database: yue_house_mall_test
+  database: huangmin_test
 
 production:
   <<: *default
-  database: yue_house_mall_manage
+  database: huangmin

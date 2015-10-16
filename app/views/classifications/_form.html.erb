@@ -2,17 +2,21 @@
   <%= form_for @classification do |f| %>
     <tr>
       <td>
-        <%= f.text_field :name, :placeholder=>"分类名字"%>
+        <%= f.text_field :name, class: 'form-control',:placeholder=>"分类名字"%>
       </td>
     </tr>
     <tr>
       <td>
-        <%= f.select :display ,options_for_select([[true],[false]], @articles.display) %>
+        <%= radio_button_tag :display, true, :checked => @classification.display %>
+        <label class="radio-inline" for='display_true'>是</label>
+        <%= radio_button_tag :display, false, false, :style => 'margin-left: 50px' %>
+        <label class="radio-inline" for='display_false'>否</label>
       </td>
     </tr>
     <tr>
       <td>
-        <%= f.submit %>
+        <%= f.submit '确定', class: 'btn btn-primary'%>
+        <%= link_to '返回', articles_path , class: 'btn btn-default' ,style: " margin-left: 100px; "%>
       </td>
     </tr>
   <% end %>

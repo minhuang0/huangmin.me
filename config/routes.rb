@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   devise_for :users
   root 'articles#welcome'
 
-  resources :articles
+  resources :articles do
+    collection do
+      get :welcome
+      get :markdown
+    end
+  end
   resources :classifications
 
   namespace :interface do

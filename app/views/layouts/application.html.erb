@@ -19,12 +19,10 @@
 
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
+              <% Classification.where("display = ?","#{true}").each do |classification| %>
+                <li><a href="/articles?classification_name=<%= classification.name%>"><%= classification.name %></a></li>
+              <% end %>
               <li>
-              <a href="/articles">笔记</a>
-              </li>
-              <li>
-              <a href="#">其他</a>
-              </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <% if user_signed_in? %>

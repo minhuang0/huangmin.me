@@ -11,6 +11,7 @@ class ClassificationsController < ApplicationController
 
   def create
     @classification = Classification.new(classification_params)
+    @classification.update(display: params[:display])
     @classification.save
 
     redirect_to @classification
@@ -26,6 +27,7 @@ class ClassificationsController < ApplicationController
 
   def update
     @classification = Classification.find(params[:id])
+    @classification.update(display: params[:display])
     if @classification.update(classification_params)
       redirect_to @classification
     else
